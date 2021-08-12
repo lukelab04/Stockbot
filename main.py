@@ -13,7 +13,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import csv 
 import requests 
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import fromstring, ElementTree
