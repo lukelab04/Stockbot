@@ -68,7 +68,8 @@ def gethousetrades(keys):
         for trade in housejson:
             for transaction in trade['transactions']:
                 # -- represents a trade that, for whatever reason, couldn't be recorded. It is easier to leave those out.
-                if '--' not in transaction['ticker'] and "50" in transaction['amount']: #In the json document, trades are given a rough monetary estimate. 50 here means that more than $50,000 was exchanged. 
+                # In the json document, trades are given a rough monetary estimate. 50 here means that more than $50,000 was exchanged.
+                if '--' not in transaction['ticker'] and ("$50,00" in transaction['amount'] or "$100,00" in transaction['amount'] or "$500,00" in transaction['amount'] or "$5,000,00" in transaction['amount']): 
                     trades.append([transaction['ticker'], transaction['transaction_type']])
     return trades, date
 
